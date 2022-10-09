@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,13 +26,15 @@ public class GameManager : MonoBehaviour
     public bool gameStarted = false;
 
     public GameObject endGameUI;
+
+    public GameObject endText;
     public GameObject startGameUI;
     
     public void Player1Scored(){
         Player1Score++;
         Player1Text.GetComponent<TextMeshProUGUI>().text = Player1Score.ToString();
         if (Player1Score >= 5){
-            //endGameUI.GetComponent<TextMeshProUGUI>().text = "Player 1 Wins!";
+            endText.GetComponent<Text>().text = "Player 1 Wins!";
             endGameUI.SetActive(true);
             gameEnd = true;
         }
@@ -44,7 +47,8 @@ public class GameManager : MonoBehaviour
         Player2Score++;
         Player2Text.GetComponent<TextMeshProUGUI>().text = Player2Score.ToString();
         if (Player2Score >= 5){
-            //endGameUI.GetComponent<TextMeshProUGUI>().text = "Player 2 Wins!";
+            endText.GetComponent<Text>().text = "Player 2 Wins!";
+            endGameUI.transform.GetChild(0);
             endGameUI.SetActive(true);
             gameEnd = true;
         }
