@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour
     {
         startPosition = transform.position;
         rb = gameObject.GetComponent<Rigidbody2D>();
-        Launch();
+        // Launch();
     }
 
     public void Reset(){
